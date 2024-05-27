@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Presentación</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        header h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .info,
+        .university {
+            text-align: center;
+        }
+
+        .info h2,
+        .university h2 {
+            color: #333;
+        }
+
+        .info p,
+        .university p {
+            color: #666;
+        }
+
+        .info p strong,
+        .university p strong {
+            color: #333;
+        }
+
+        .info {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .university {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>PROBLEMA DE LA MOCHILA</h1>
+        </header>
+        <section>
+            <div class="info">
+                <h2>Programador</h2>
+                <p><strong>Nombre:</strong> Daniel Restrepo</p>
+                <p><strong>Asignatura:</strong> Modelos Deterministicos </p>
+                <p><strong>Fecha de desarrollo:</strong> Mayo 2024</p>
+            </div>
+            <div class="university">
+                <h2>Universidad de la Amazonia</h2>
+                <p><strong>Carrera:</strong> Ingenieria de Sistemas </p>
+            </div>
+            
+        </section>
+        <div class="container">
+            <p>Datos a tener en cuenta : </p>
+            <p style="color: red;"> Color Rojo : las cajas con color rojo en la simulacion son los elementos eliminados</p>
+            <p style="color: rgb(10, 136, 31);"> Color Verde: las cajas con color verde en la simulacion son los elementos guardados en la mochila</p>
+        </div>
+    </div>
+</body>
+
+</html>

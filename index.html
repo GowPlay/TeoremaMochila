@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con pestañas - Iframe</title>
+    <style>
+         body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .tab-container {
+            height: 100%;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tab-selector {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end; /* Alinear los selectores a la derecha */
+            background-color: #f0f0f0; /* Color de fondo para los botones */
+            border-bottom: 1px solid #ccc; /* Línea separadora */
+        }
+
+        .tab-selector label {
+            padding: 10px 15px; /* Espacio interno */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar cursor al pasar por encima */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+
+        .tab-selector input[type="radio"] {
+            display: none; /* Ocultar los radios */
+        }
+
+        .tab-selector label:hover {
+            background-color: #e0e0e0; /* Cambiar color de fondo al pasar por encima */
+        }
+
+        .tab-selector label::before {
+            content: "";
+            display: inline-block;
+            width: 8px; /* Tamaño del punto indicador */
+            height: 8px;
+            background-color: transparent;
+            border: 2px solid #555; /* Color del punto indicador */
+            border-radius: 50%; /* Hacer el punto redondeado */
+            margin-right: 8px; /* Espacio entre el punto y el texto */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+
+        .tab-selector input[type="radio"]:checked + label::before {
+            background-color: #555; /* Cambiar color del punto al seleccionar */
+        }
+
+        iframe {
+            flex: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-container">
+        <div class="tab-selector">
+            <input type="radio" id="tab1" name="tab" checked>
+            <label for="tab1">Mochila (1 elemento )</label>
+            <input type="radio" id="tab2" name="tab">
+            <label for="tab2">Mochila (+ 1 elemento )</label>
+        </div>
+        <iframe src="datos.html" id="content" name="content"></iframe>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('[name="tab"]');
+        const iframe = document.getElementById('content');
+
+        tabs.forEach(function(tab, index) {
+            tab.addEventListener('change', function() {
+                if (this.checked) {
+                    iframe.src = 'problema/app' + (index + 1) + '.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
